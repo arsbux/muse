@@ -1,10 +1,11 @@
 "use client"
 
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Trash2, ArrowRight, ShoppingBag, ArrowLeft } from "lucide-react"
+import { Trash2, ArrowRight, ShoppingBag, ArrowLeft, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useCart } from "@/lib/contexts"
 import { formatPrice } from "@/lib/mock-data"
@@ -12,9 +13,12 @@ import { formatPrice } from "@/lib/mock-data"
 export function CartView() {
   const router = useRouter()
   const { cart, removeItem, itemCount, totalPrice, clearCart } = useCart()
+  const [isCheckingOut, setIsCheckingOut] = useState(false)
 
   const handleCheckout = async () => {
     if (!cart || cart.items.length === 0) return
+
+    setIsCheckingOut(true)
 
     try {
       console.log("🛒 Initiating checkout...")
@@ -42,6 +46,7 @@ export function CartView() {
       }
     } catch (error) {
       console.error("Checkout error:", error)
+      setIsCheckingOut(false)
       alert(error instanceof Error ? error.message : "Failed to create checkout. Please try again.")
     }
   }
@@ -186,11 +191,21 @@ export function CartView() {
 
             <Button
               onClick={handleCheckout}
+              disabled={isCheckingOut}
               size="lg"
-              className="mt-6 w-full rounded-full bg-foreground text-background hover:bg-foreground/90"
+              className="mt-6 w-full rounded-full bg-foreground text-background hover:bg-foreground/90 disabled:opacity-50"
             >
-              Proceed to Checkout
-              <ArrowRight className="ml-2 h-4 w-4" />
+              {isCheckingOut ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Creating checkout...
+                </>
+              ) : (
+                <>
+                  Proceed to Checkout
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </>
+              )}
             </Button>
 
             <p className="mt-3 text-center text-[11px] text-muted-foreground">
