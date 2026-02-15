@@ -24,7 +24,7 @@ export function GenerationStudio() {
           </p>
         </motion.div>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[400px_1fr]">
+        <div className="mt-6 md:mt-10 flex flex-col gap-6 md:gap-10 lg:grid lg:grid-cols-[400px_1fr]">
           <PromptPanel />
           <ResultsPanel />
         </div>

@@ -105,7 +105,7 @@ export function ResultsPanel() {
   return (
     <div className="flex flex-col gap-6">
       {/* Image Grid */}
-      <div className="grid grid-cols-2 gap-3">
+      <div className="grid grid-cols-2 gap-2 sm:gap-3">
         <AnimatePresence mode="wait">
           {isGenerating
             ? Array.from({ length: 4 }).map((_, i) => (
@@ -141,7 +141,7 @@ export function ResultsPanel() {
                     src={img.url}
                     alt={`Generated variant ${i + 1}`}
                     fill
-                    sizes="(max-width: 768px) 50vw, 25vw"
+                    sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
                     className="object-cover"
                   />
                   {selectedImage?.id === img.id && (
@@ -188,7 +188,7 @@ export function ResultsPanel() {
             </div>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
             <Button
               onClick={() => {
                 setActiveModifiers([])
@@ -199,16 +199,18 @@ export function ResultsPanel() {
               className="rounded-full border-border text-foreground hover:bg-card"
             >
               <RotateCcw className="mr-1.5 h-3.5 w-3.5" />
-              Try Different Composition
+              <span className="hidden sm:inline">Try Different Composition</span>
+              <span className="sm:hidden">Try Different</span>
             </Button>
 
             <Button
               onClick={handleContinue}
               disabled={!selectedImage}
               size="sm"
-              className="ml-auto rounded-full bg-foreground text-background hover:bg-foreground/90 disabled:opacity-50"
+              className="sm:ml-auto rounded-full bg-foreground text-background hover:bg-foreground/90 disabled:opacity-50"
             >
-              Continue to Print Options
+              <span className="hidden sm:inline">Continue to Print Options</span>
+              <span className="sm:hidden">Continue</span>
               <ArrowRight className="ml-1.5 h-3.5 w-3.5" />
             </Button>
           </div>

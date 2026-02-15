@@ -101,7 +101,7 @@ export function ProductConfigurator({ imageId }: { imageId: string }) {
           </h1>
         </motion.div>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_420px]">
+        <div className="mt-6 md:mt-10 flex flex-col-reverse gap-6 md:gap-10 lg:flex-row lg:grid lg:grid-cols-[1fr_420px]">
           {/* Left: Preview */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -120,18 +120,18 @@ export function ProductConfigurator({ imageId }: { imageId: string }) {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-6 md:gap-8"
           >
             {/* Size Selection */}
             <div>
               <p className="mb-3 text-xs uppercase tracking-[0.15em] text-muted-foreground">Size</p>
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                 {SIZES.map((s) => (
                   <button
                     key={s.id}
                     onClick={() => setSize(s.id)}
                     className={cn(
-                      "flex flex-col items-center rounded-lg border border-border py-3 text-xs transition-all",
+                      "flex flex-col items-center rounded-lg border border-border py-2.5 sm:py-3 text-xs transition-all",
                       size === s.id
                         ? "border-accent bg-accent/10 text-foreground"
                         : "bg-card text-muted-foreground hover:border-accent/30"
@@ -184,7 +184,7 @@ export function ProductConfigurator({ imageId }: { imageId: string }) {
             {/* Frame Selection */}
             <div>
               <p className="mb-3 text-xs uppercase tracking-[0.15em] text-muted-foreground">Frame</p>
-              <div className="flex gap-2 overflow-x-auto pb-1">
+              <div className="flex gap-2 overflow-x-auto pb-1 -mx-1 px-1">
                 {FRAMES.map((f) => (
                   <button
                     key={f.id}
@@ -193,19 +193,19 @@ export function ProductConfigurator({ imageId }: { imageId: string }) {
                       if (f.id === "none") setMat("none")
                     }}
                     className={cn(
-                      "flex shrink-0 flex-col items-center gap-2 rounded-lg border border-border px-4 py-3 transition-all",
+                      "flex shrink-0 flex-col items-center gap-2 rounded-lg border border-border px-3 sm:px-4 py-2.5 sm:py-3 transition-all",
                       frame === f.id
                         ? "border-accent bg-accent/10"
                         : "bg-card hover:border-accent/30"
                     )}
                   >
                     <div
-                      className="h-6 w-6 rounded-sm border border-border"
+                      className="h-5 w-5 sm:h-6 sm:w-6 rounded-sm border border-border"
                       style={{ backgroundColor: f.color === "transparent" ? "transparent" : f.color }}
                     />
-                    <span className="text-[11px] text-foreground">{f.label}</span>
+                    <span className="text-[10px] sm:text-[11px] text-foreground whitespace-nowrap">{f.label}</span>
                     {f.upcharge > 0 && (
-                      <span className="text-[10px] text-muted-foreground">+{formatPrice(f.upcharge)}</span>
+                      <span className="text-[9px] sm:text-[10px] text-muted-foreground">+{formatPrice(f.upcharge)}</span>
                     )}
                   </button>
                 ))}
