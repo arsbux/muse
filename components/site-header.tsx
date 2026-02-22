@@ -2,46 +2,89 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ShoppingBag } from "lucide-react"
+import { ShoppingBag, Menu, X } from "lucide-react"
 import { useCart } from "@/lib/contexts"
 import { cn } from "@/lib/utils"
+import { useState } from "react"
 
 const NAV_LINKS = [
+  { href: "/discover", label: "Discover" },
   { href: "/create", label: "Create" },
-  { href: "/cart", label: "Cart" },
+  { href: "/gallery", label: "Gallery" },
 ]
 
 export function SiteHeader() {
   const pathname = usePathname()
   const { itemCount } = useCart()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <Link href="/" className="font-serif text-2xl tracking-tight text-foreground">
-          AI Art Generator
+        <Link href="/" className="font-serif text-2xl tracking-tight text-foreground hover:text-accent transition-colors">
+          Muse
         </Link>
 
-        <div className="flex items-center gap-8">
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm tracking-wide transition-colors hover:text-foreground flex items-center gap-2",
+                "text-sm tracking-wide transition-colors hover:text-accent",
                 pathname === link.href ? "text-foreground font-medium" : "text-muted-foreground"
               )}
             >
               {link.label}
-              {link.href === "/cart" && itemCount > 0 && (
-                <span className="flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-medium text-accent-foreground">
-                  {itemCount}
-                </span>
-              )}
             </Link>
           ))}
         </div>
+
+        {/* Cart Icon */}
+        <div className="flex items-center gap-4">
+          <Link
+            href="/cart"
+            className="relative p-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ShoppingBag className="h-5 w-5" />
+            {itemCount > 0 && (
+              <span className="absolute top-0 right-0 flex h-5 w-5 items-center justify-center rounded-full bg-accent text-[10px] font-medium text-accent-foreground">
+                {itemCount}
+              </span>
+            )}
+          </Link>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </button>
+        </div>
       </nav>
+
+      {/* Mobile Navigation */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-t border-border bg-card">
+          <nav className="flex flex-col gap-4 px-6 py-4">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={cn(
+                  "text-sm tracking-wide transition-colors hover:text-accent",
+                  pathname === link.href ? "text-foreground font-medium" : "text-muted-foreground"
+                )}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   )
 }

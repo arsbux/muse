@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { DM_Sans, Playfair_Display } from "next/font/google"
+import { DM_Sans, Crimson_Pro } from "next/font/google"
 import { Toaster } from "sonner"
 
 import "./globals.css"
@@ -11,9 +11,10 @@ const dmSans = DM_Sans({
   variable: "--font-sans",
 })
 
-const playfair = Playfair_Display({
+const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
   variable: "--font-serif",
+  weight: ["400", "600", "700"],
 })
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${playfair.variable}`}>
+    <html lang="en" className={`${dmSans.variable} ${crimsonPro.variable}`}>
       <body className="font-sans antialiased">
         <Providers>
           <SiteHeader />
