@@ -7,15 +7,15 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { GALLERY_ITEMS } from "@/lib/mock-data"
 
-// Vary heights to create masonry feel
-const itemHeights = [750, 520, 640, 560, 700, 500]
+// Vary heights to create masonry feel (desktop); mobile uses aspect-ratio
+const itemHeights = [560, 480, 520, 480, 560, 480]
 
 export function SampleGallery() {
   const featured = GALLERY_ITEMS.slice(0, 6)
 
   return (
-    <section className="py-20 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-16 sm:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* Header */}
         <motion.div
@@ -23,13 +23,13 @@ export function SampleGallery() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-end"
+          className="mb-8 sm:mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end"
         >
           <div>
             <p className="mb-3 text-sm uppercase tracking-[0.2em] text-muted-foreground">
               Gallery
             </p>
-            <h2 className="font-serif text-4xl tracking-tight text-foreground md:text-5xl text-balance">
+            <h2 className="font-serif text-3xl sm:text-4xl tracking-tight text-foreground md:text-5xl text-balance">
               See what's possible
             </h2>
             <p className="mt-3 text-muted-foreground text-base max-w-md">
@@ -63,7 +63,7 @@ export function SampleGallery() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.07 }}
-              className="group relative mb-4 break-inside-avoid overflow-hidden rounded-2xl bg-muted"
+              className={`group relative mb-4 break-inside-avoid overflow-hidden rounded-2xl bg-muted${i >= 3 ? " hidden sm:block" : ""}`}
             >
               <Image
                 src={item.url}

@@ -19,8 +19,8 @@ const styles = [
 
 export function StyleShowcase() {
   return (
-    <section className="py-20 sm:py-28">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-16 sm:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* ── Split header ── */}
         <motion.div
@@ -28,13 +28,13 @@ export function StyleShowcase() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+          className="mb-8 sm:mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
           <div>
             <p className="mb-3 text-sm uppercase tracking-[0.2em] text-muted-foreground">
               Artistic Styles
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl tracking-tight text-foreground text-balance">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl tracking-tight text-foreground text-balance">
               Every style,{" "}
               <span className="text-accent italic">your</span> vision
             </h2>
@@ -145,7 +145,7 @@ export function StyleShowcase() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="relative aspect-square overflow-hidden rounded-xl bg-muted"
+                className="relative aspect-[3/2] overflow-hidden rounded-xl bg-muted"
               >
                 <Image src={item.url} alt={styles[i + 1]?.name || ""} fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/75 to-transparent" />

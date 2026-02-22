@@ -7,47 +7,47 @@ import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
   return (
-    <section className="px-4 pb-6 pt-4 sm:px-6 sm:pb-8 lg:px-8">
+    <section className="px-3 pb-4 pt-3 sm:px-6 sm:pb-8 lg:px-8">
       {/* Framed Card */}
-      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2.5rem] bg-card py-28 sm:py-36">
+      <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] sm:rounded-[2.5rem] bg-card py-20 sm:py-36">
 
         {/* ── Blob decorations ── */}
         <motion.div
-          className="pointer-events-none absolute -left-28 -top-28 h-96 w-96 bg-accent/20"
+          className="pointer-events-none absolute -left-20 -top-20 h-64 w-64 sm:-left-28 sm:-top-28 sm:h-96 sm:w-96 bg-accent/20"
           style={{ borderRadius: "60% 40% 70% 30% / 50% 70% 30% 60%" }}
           animate={{ rotate: [0, 10, 0] }}
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div
-          className="pointer-events-none absolute -bottom-28 -right-28 h-96 w-96 bg-accent/15"
+          className="pointer-events-none absolute -bottom-20 -right-20 h-64 w-64 sm:-bottom-28 sm:-right-28 sm:h-96 sm:w-96 bg-accent/15"
           style={{ borderRadius: "40% 60% 30% 70% / 70% 40% 60% 30%" }}
           animate={{ rotate: [0, -10, 0] }}
           transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Small accent blob — top right */}
         <motion.div
-          className="pointer-events-none absolute right-12 top-12 h-24 w-24 bg-accent/25"
+          className="pointer-events-none absolute right-6 top-6 h-16 w-16 sm:right-12 sm:top-12 sm:h-24 sm:w-24 bg-accent/25"
           style={{ borderRadius: "50% 70% 40% 60% / 60% 40% 70% 50%" }}
           animate={{ scale: [1, 1.08, 1] }}
           transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
         />
         {/* Small accent blob — bottom left */}
         <motion.div
-          className="pointer-events-none absolute bottom-12 left-12 h-16 w-16 bg-accent/20"
+          className="pointer-events-none absolute bottom-6 left-6 h-12 w-12 sm:bottom-12 sm:left-12 sm:h-16 sm:w-16 bg-accent/20"
           style={{ borderRadius: "70% 30% 50% 50% / 40% 60% 40% 60%" }}
           animate={{ scale: [1, 1.12, 1] }}
           transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         />
 
         {/* ── Center Content ── */}
-        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-6 text-center">
+        <div className="relative z-10 mx-auto flex max-w-3xl flex-col items-center px-5 text-center">
 
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="mb-8 inline-flex items-center gap-2 rounded-full bg-accent/15 px-5 py-2.5 border border-accent/30 backdrop-blur-sm"
+            className="mb-6 sm:mb-8 inline-flex items-center gap-2 rounded-full bg-accent/15 px-4 py-2 sm:px-5 sm:py-2.5 border border-accent/30 backdrop-blur-sm"
           >
             <Sparkles className="h-4 w-4 text-accent animate-pulse" />
             <span className="text-xs uppercase tracking-[0.2em] text-accent font-semibold">
@@ -60,7 +60,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-serif text-5xl leading-tight tracking-tight text-foreground md:text-6xl lg:text-7xl text-balance"
+            className="font-serif text-4xl leading-tight tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl text-balance"
           >
             Art created by{" "}
             <span className="text-accent italic">you</span>,
@@ -73,7 +73,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-8 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground"
+            className="mt-6 sm:mt-8 max-w-xl text-sm sm:text-base md:text-lg leading-relaxed text-muted-foreground"
           >
             Describe your vision. Watch AI bring it to life. Choose your perfect
             print and receive museum-quality art delivered to your door.

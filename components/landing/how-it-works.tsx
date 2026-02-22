@@ -45,8 +45,8 @@ const steps = [
 
 export function HowItWorks() {
   return (
-    <section className="py-20 sm:py-32 bg-card/40">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-16 sm:py-32 bg-card/40">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
 
         {/* Header */}
         <motion.div
@@ -54,13 +54,13 @@ export function HowItWorks() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
+          className="mb-10 sm:mb-16 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
           <div>
             <p className="mb-3 text-sm uppercase tracking-[0.2em] text-muted-foreground">
               How It Works
             </p>
-            <h2 className="font-serif text-4xl tracking-tight text-foreground md:text-5xl text-balance">
+            <h2 className="font-serif text-3xl sm:text-4xl tracking-tight text-foreground md:text-5xl text-balance">
               From imagination to your wall
             </h2>
           </div>
@@ -80,11 +80,11 @@ export function HowItWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="group relative flex flex-col bg-card p-8 hover:bg-accent/5 transition-colors"
+                className="group relative flex flex-col bg-card p-5 sm:p-8 hover:bg-accent/5 transition-colors"
               >
                 {/* Number + Icon row */}
-                <div className="mb-8 flex items-center justify-between">
-                  <span className="font-serif text-5xl font-semibold text-accent/20 group-hover:text-accent/40 transition-colors leading-none">
+                <div className="mb-5 sm:mb-8 flex items-center justify-between">
+                  <span className="font-serif text-4xl sm:text-5xl font-semibold text-accent/20 group-hover:text-accent/40 transition-colors leading-none">
                     {step.number}
                   </span>
                   <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 group-hover:bg-accent/20 transition-colors">

@@ -48,20 +48,20 @@ export function QualitySection() {
   }
 
   return (
-    <section className="py-20 sm:py-32 bg-gradient-to-b from-accent/5 via-background to-background">
-      <div className="mx-auto max-w-7xl px-6">
+    <section className="py-16 sm:py-32 bg-gradient-to-b from-accent/5 via-background to-background">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
+          className="mb-10 sm:mb-16 text-center"
         >
           <p className="mb-4 text-sm uppercase tracking-[0.2em] text-muted-foreground">
             Why Muse
           </p>
-          <h2 className="font-serif text-4xl tracking-tight text-foreground md:text-5xl text-balance">
+          <h2 className="font-serif text-3xl sm:text-4xl tracking-tight text-foreground md:text-5xl text-balance">
             Crafted with care, delivered with pride
           </h2>
           <p className="mt-6 max-w-2xl mx-auto text-muted-foreground text-base leading-relaxed">
@@ -75,7 +75,7 @@ export function QualitySection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-4"
+          className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-4"
         >
           {features.map((feature) => {
             const Icon = feature.icon
@@ -83,7 +83,7 @@ export function QualitySection() {
               <motion.div
                 key={feature.title}
                 variants={itemVariants}
-                className="group relative p-8 rounded-lg border border-border/50 bg-card/30 hover:bg-card/60 hover:border-accent/30 transition-all hover:shadow-lg"
+                className="group relative p-5 sm:p-8 rounded-lg border border-border/50 bg-card/30 hover:bg-card/60 hover:border-accent/30 transition-all hover:shadow-lg"
               >
                 {/* Icon */}
                 <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-accent/10 group-hover:bg-accent/20 transition-colors">
@@ -108,17 +108,17 @@ export function QualitySection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-20 grid gap-8 md:grid-cols-3 text-center"
+          className="mt-12 sm:mt-20 grid gap-0 sm:grid-cols-3 text-center divide-y sm:divide-y-0 sm:divide-x divide-border"
         >
-          <div className="p-6">
+          <div className="p-6 sm:p-8">
             <p className="text-3xl font-serif font-bold text-accent mb-2">10,000+</p>
             <p className="text-sm text-muted-foreground uppercase tracking-wide">Artworks Created</p>
           </div>
-          <div className="p-6 border-l border-r border-border">
+          <div className="p-6 sm:p-8">
             <p className="text-3xl font-serif font-bold text-accent mb-2">99%</p>
             <p className="text-sm text-muted-foreground uppercase tracking-wide">Customer Satisfaction</p>
           </div>
-          <div className="p-6">
+          <div className="p-6 sm:p-8">
             <p className="text-3xl font-serif font-bold text-accent mb-2">2-3 Days</p>
             <p className="text-sm text-muted-foreground uppercase tracking-wide">Shipping Time</p>
           </div>

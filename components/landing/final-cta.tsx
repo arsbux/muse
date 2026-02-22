@@ -27,7 +27,7 @@ export function FinalCTA() {
   }
 
   return (
-    <section className="relative py-20 sm:py-32 overflow-hidden">
+    <section className="relative py-16 sm:py-32 overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 -z-10">
         <motion.div
@@ -42,7 +42,7 @@ export function FinalCTA() {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -55,7 +55,7 @@ export function FinalCTA() {
             <p className="text-sm uppercase tracking-[0.2em] text-accent font-medium">
               Ready to begin?
             </p>
-            <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground text-balance leading-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tight text-foreground text-balance leading-tight">
               Your masterpiece is waiting to be created
             </h2>
             <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
